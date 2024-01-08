@@ -2,7 +2,7 @@
 import { createStore } from 'vuex';
 import axios from 'axios';
 
-const apiModule = createStore({
+const apiModule = {
     namespaced: true,
     state: {
         items: null
@@ -25,6 +25,6 @@ const apiModule = createStore({
             }
         }
     }
-});
+};
 
 export default apiModule;
