@@ -1,30 +1,44 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <v-app>
+    <v-navigation-drawer app v-model="drawer" v-model:mini-variant="miniVariant">
+
+    <!-- Contenuto del menu a scomparsa -->
+      <v-list>
+        <router-link to="/">
+          <v-list-item link>Home</v-list-item>
+        </router-link>
+
+        <router-link to="/about">
+          <v-list-item link>About</v-list-item>
+        </router-link>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>Titolo della pagina</v-toolbar-title>
+    </v-app-bar>
+
+    <v-main>
+      <v-container fluid>
+        <!-- Il tuo contenuto principale va qui -->
+        <router-view></router-view>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      drawer: true,
+      miniVariant: false, // Inizializza con il menu non compresso
+    };
+  },
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+/* Personalizza lo stile secondo le tue esigenze */
 </style>

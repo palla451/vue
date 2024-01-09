@@ -1,7 +1,5 @@
 <template>
-  <div class="about">
-    <AboutComponent msg="Welcome to You Vue.js about page "/>
-  </div>
+    <AboutComponent msg="Welcome to about page in Vue"/>
 </template>
 
 <script>
